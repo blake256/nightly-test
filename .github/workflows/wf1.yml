@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   test1:
-    uses: blake256/nightly-test/.github/workflows/govite-nightly-build.yml@main
+    uses: ./.github/workflows/govite-nightly-build.yml
     with:
       branch: main
       tag: v1234
