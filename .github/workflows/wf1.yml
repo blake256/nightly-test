@@ -10,7 +10,7 @@ jobs:
       - name: test
         run: echo 'ref:' ${{ github.event.client_payload.ref }} ' / sha:' ${{ github.event.client_payload.sha }}
       - name: govite-nightly-build
-        uses: ./.github/workflows/gvite-nightly-build
+        uses: ./.github/workflows/govite-nightly-build
         with:
           branch: master
           version: 1234
