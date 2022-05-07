@@ -7,7 +7,7 @@ on:
 
 jobs:
   test1:
-    uses: ./.github/workflows/wf2.yml
+    uses: ./.github/workflows/govite-nightly-build.yml
     with:
       branch: main
       tag: v1.2.3
