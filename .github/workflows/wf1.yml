@@ -1,8 +1,10 @@
-name: Repository Dispatch
+name: wf1
+
 on:
   repository_dispatch:
     types: [my-event]
   workflow_dispatch:
+
 jobs:
   test1:
     uses: ./.github/workflows/wf2.yml
