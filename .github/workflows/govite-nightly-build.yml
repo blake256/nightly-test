@@ -1,6 +1,7 @@
 name: gvite-nightly-build
 
 on:
+  workflow_call:
   workflow_dispatch:
     inputs:
       branch:
