@@ -4,23 +4,8 @@ on:
     types: [my-event]
   workflow_dispatch:
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      output1: ${{ steps.step1.outputs.buildversion }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Read buildversion
-        id: buildversion
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./version/buildversion    
-      - id: step1
-        run: echo "::set-output name=buildversion::${{ steps.buildversion.outputs.buildversion }}"
-  job2:
-    needs: job1
+  test1:
     uses: ./.github/workflows/govite-nightly-build.yml
     with:
       branch: main
-      tag: ${{needs.job1.outputs.output1}}
+      tag: v1.2.3
