@@ -18,12 +18,12 @@ on:
         description: 'tag prefix'
         required: true
         
- jobs:
-  build:
+jobs:
+  test_job:
     runs-on: ubuntu-18.04
     steps:
     - name: Set branch and tag
       id: step0
       run: echo "::set-output name=branch::${{ (inputs || github.event.inputs).branch }}" | echo "::set-output name=branch::${{ (inputs || github.event.inputs).tag }}"
     - name: Echo branch and tag
-      run:  echo "branch: ${{ steps.step0.outputs.branch }} tag: ${{ steps.step0.outputs.tag }}"
+      run: echo ${{ steps.step0.outputs.branch }} ${{ steps.step0.outputs.tag }}
