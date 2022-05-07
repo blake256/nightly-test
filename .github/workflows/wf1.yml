@@ -5,7 +5,9 @@ on:
   workflow_dispatch:
 jobs:
   test1:
-    uses: ./.github/workflows/govite-nightly-build.yml
-    with:
-      branch: master
-      version: 1234
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/govite-nightly-build.yml
+        with:
+          branch: master
+          tag: v1234
