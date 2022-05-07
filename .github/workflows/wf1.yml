@@ -9,5 +9,5 @@ jobs:
   test1:
     uses: ./.github/workflows/govite-nightly-build.yml
     with:
-      branch: main
+      branch: master
       tag: v1.2.3
