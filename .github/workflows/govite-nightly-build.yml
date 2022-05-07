@@ -2,6 +2,13 @@ name: gvite-nightly-build
 
 on:
   workflow_call:
+    inputs:
+      branch:
+        type: string
+        required: true
+      tag:
+        type: string
+        required: true  
   workflow_dispatch:
     inputs:
       branch:
