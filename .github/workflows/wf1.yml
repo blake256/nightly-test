@@ -2,12 +2,19 @@ name: wf1
 
 on:
   repository_dispatch:
-    types: [my-event]
+    types: [nightly-build-event]
   workflow_dispatch:
+    inputs:
+      branch:
+        default: master
+        description: 'nightly build from'
+      tag:
+        default: v0.0.0
+        description: 'tag prefix'
 
 jobs:
-  test1:
+  trigger_build:
     uses: ./.github/workflows/govite-nightly-build.yml
     with:
-      branch: master
-      tag: v1.2.3
+      branch: ${{ github.event.client_payload.branch || github.event.inputs.branch }}
+      tag: ${{ github.event.client_payload.tag || github.event.inputs.tag }}
