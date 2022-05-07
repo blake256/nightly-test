@@ -24,6 +24,8 @@ jobs:
     steps:
     - name: Set branch and tag
       id: step0
-      run: echo "::set-output name=branch::${{ (inputs || github.event.inputs).branch }}" | echo "::set-output name=tag::${{ (inputs || github.event.inputs).tag }}"
+      run: |
+        echo "::set-output name=branch::${{ (inputs || github.event.inputs).branch }}"
+        echo "::set-output name=tag::${{ (inputs || github.event.inputs).tag }}"
     - name: Echo branch and tag
-      run: echo ${{ steps.step0.outputs.branch }} | echo ${{ steps.step0.outputs.tag }}
+      run: echo ${{ steps.step0.outputs.branch }} ${{ steps.step0.outputs.tag }}
