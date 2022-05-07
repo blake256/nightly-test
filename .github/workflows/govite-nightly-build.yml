@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        repository: 'niklr/go-vite'
+        repository: 'blake256/go-vite'
         ref: '${{ github.event.inputs.branch }}'
 
     - name: Set up Go
