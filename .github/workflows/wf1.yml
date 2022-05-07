@@ -4,7 +4,14 @@ on:
     types: [my-event]
   workflow_dispatch:
 jobs:
-  run_nightly:
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/govite-nightly-build.yml
+        with:
+          branch: master
+          version: 1234
+  test2:
     uses: ./.github/workflows/govite-nightly-build.yml
     name: Run govite-nightly-build
     with:
