@@ -2,9 +2,15 @@ name: Repository Dispatch
 on:
   repository_dispatch:
     types: [my-event]
+  workflow_dispatch:
 jobs:
   myEvent:
     runs-on: ubuntu-latest
     steps:
       - name: test
         run: echo 'ref:' ${{ github.event.client_payload.ref }} ' / sha:' ${{ github.event.client_payload.sha }}
+      - name: govite-nightly-build
+        uses: ./.github/workflows/govite-nightly-build.yml@main
+        with:
+          branch: master
+          version: 1234
