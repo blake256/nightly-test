@@ -1,4 +1,4 @@
-name: gvite-nightly-build
+name: govite-nightly-build
 
 on:
   workflow_call:
